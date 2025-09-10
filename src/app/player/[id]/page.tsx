@@ -10,12 +10,16 @@ type PlayerPageProps = {
   };
 };
 
-export default function PlayerPage({ params }: PlayerPageProps) {
-  const item = getContentById(params.id);
+export default async function PlayerPage({ params }: PlayerPageProps) {
+  const item = await getContentById(params.id);
 
-  if (!item) {
+  if (!item || !item.imdbId) {
     notFound();
   }
+
+  const embedUrl = item.type === 'movie' 
+    ? `https://www.2embed.cc/embed/${item.imdbId}`
+    : `https://www.2embed.cc/embedtv/${item.imdbId}`;
 
   return (
     <div className="w-full h-screen bg-black flex flex-col">
@@ -30,7 +34,7 @@ export default function PlayerPage({ params }: PlayerPageProps) {
       </div>
       <div className="flex-1 w-full h-full">
         <iframe
-          src={`https://www.2embed.cc/embed/${item.imdbId}`}
+          src={embedUrl}
           allowFullScreen
           title={item.title}
           className="w-full h-full border-0"

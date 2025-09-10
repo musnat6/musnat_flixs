@@ -1,8 +1,8 @@
 import { MovieCard } from '@/components/movie-card';
 import { getAllMovies } from '@/lib/data';
 
-export default function MoviesPage() {
-  const movies = getAllMovies();
+export default async function MoviesPage() {
+  const movies = await getAllMovies();
 
   return (
     <div className="container py-12">

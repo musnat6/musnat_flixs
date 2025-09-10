@@ -24,12 +24,12 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
 }
 
 async function SearchResults({ query }: { query: string }) {
-  const results: ContentItem[] = searchContent(query);
-
   if (!query) {
     return <div className="text-center text-muted-foreground mt-12">Start typing to search for content.</div>;
   }
   
+  const results: ContentItem[] = await searchContent(query);
+
   if (results.length === 0) {
     return <div className="text-center text-muted-foreground mt-12">No results found for &quot;{query}&quot;.</div>;
   }

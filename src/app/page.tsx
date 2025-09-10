@@ -3,11 +3,11 @@ import { MovieCarousel } from '@/components/movie-carousel';
 import { ContentSection } from '@/components/content-section';
 import { getFeatured, getPopularMovies, getTrendingShows, getRecommended } from '@/lib/data';
 
-export default function Home() {
-  const featured = getFeatured();
-  const popularMovies = getPopularMovies();
-  const trendingShows = getTrendingShows();
-  const recommended = getRecommended();
+export default async function Home() {
+  const featured = await getFeatured();
+  const popularMovies = await getPopularMovies();
+  const trendingShows = await getTrendingShows();
+  const recommended = await getRecommended();
 
   return (
     <div className="flex flex-col">

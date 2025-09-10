@@ -12,8 +12,8 @@ type MovieDetailPageProps = {
   };
 };
 
-export default function MovieDetailPage({ params }: MovieDetailPageProps) {
-  const item = getContentById(params.id);
+export default async function MovieDetailPage({ params }: MovieDetailPageProps) {
+  const item = await getContentById(params.id);
 
   if (!item) {
     notFound();
@@ -70,7 +70,7 @@ export default function MovieDetailPage({ params }: MovieDetailPageProps) {
               {item.description}
             </p>
 
-            <Button asChild size="lg" className="w-full md:w-auto">
+            <Button asChild size="lg" className="w-full md:w-auto" disabled={!item.imdbId}>
               <Link href={`/player/${item.id}`}>
                 <PlayCircle className="mr-2 h-6 w-6" />
                 Play Now
