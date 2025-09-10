@@ -1,3 +1,154 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "backdrop-1",
+      "description": "Epic movie scene",
+      "imageUrl": "https://picsum.photos/seed/b1/1280/720",
+      "imageHint": "movie scene"
+    },
+    {
+      "id": "backdrop-2",
+      "description": "Dramatic movie scene",
+      "imageUrl": "https://picsum.photos/seed/b2/1280/720",
+      "imageHint": "action movie"
+    },
+    {
+      "id": "backdrop-3",
+      "description": "Sci-fi movie backdrop",
+      "imageUrl": "https://picsum.photos/seed/b3/1280/720",
+      "imageHint": "sci-fi space"
+    },
+    {
+      "id": "backdrop-4",
+      "description": "Fantasy world landscape",
+      "imageUrl": "https://picsum.photos/seed/b4/1280/720",
+      "imageHint": "fantasy landscape"
+    },
+    {
+      "id": "backdrop-5",
+      "description": "Thriller movie scene",
+      "imageUrl": "https://picsum.photos/seed/b5/1280/720",
+      "imageHint": "dark alley"
+    },
+    {
+      "id": "poster-1",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p1/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-2",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p2/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-3",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p3/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-4",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p4/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-5",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p5/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-6",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p6/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-7",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p7/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-8",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p8/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-9",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p9/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-10",
+      "description": "Movie poster",
+      "imageUrl": "https://picsum.photos/seed/p10/500/750",
+      "imageHint": "movie poster"
+    },
+    {
+      "id": "poster-11",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t1/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-12",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t2/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-13",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t3/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-14",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t4/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-15",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t5/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-16",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t6/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-17",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t7/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-18",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t8/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-19",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t9/500/750",
+      "imageHint": "tv show"
+    },
+    {
+      "id": "poster-20",
+      "description": "TV show poster",
+      "imageUrl": "https://picsum.photos/seed/t10/500/750",
+      "imageHint": "tv show"
+    }
+  ]
 }
