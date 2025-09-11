@@ -1,3 +1,4 @@
+
 import type { ContentItem, Movie, TVShow, MovieDetails, TVShowDetails, Season } from '@/types';
 
 const API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY;
@@ -45,33 +46,42 @@ function mapTVShowToContentItem(show: TVShow): ContentItem {
   };
 }
 
+async function fetchPagedResults(path: string, pages = 2) {
+    const promises = [];
+    for (let i = 1; i <= pages; i++) {
+        promises.push(fetchFromTMDB(path, { page: i.toString() }));
+    }
+    const results = await Promise.all(promises);
+    return results.flatMap(result => result.results);
+}
+
 export async function getFeatured(): Promise<ContentItem[]> {
-  const { results } = await fetchFromTMDB('/movie/now_playing');
-  return results.slice(0, 5).map(mapMovieToContentItem);
+  const results = await fetchFromTMDB('/movie/now_playing');
+  return results.results.slice(0, 5).map(mapMovieToContentItem);
 }
 
 export async function getPopularMovies(): Promise<ContentItem[]> {
-  const { results } = await fetchFromTMDB('/movie/popular');
+  const results = await fetchPagedResults('/movie/popular');
   return results.map(mapMovieToContentItem);
 }
 
 export async function getTrendingShows(): Promise<ContentItem[]> {
-  const { results } = await fetchFromTMDB('/trending/tv/week');
+  const results = await fetchPagedResults('/trending/tv/week');
   return results.map(mapTVShowToContentItem);
 }
 
 export async function getRecommended(): Promise<ContentItem[]> {
-  const { results } = await fetchFromTMDB('/movie/top_rated');
+  const results = await fetchPagedResults('/movie/top_rated');
   return results.map(mapMovieToContentItem);
 }
 
 export async function getAllMovies(): Promise<ContentItem[]> {
-    const { results } = await fetchFromTMDB('/discover/movie');
+    const results = await fetchPagedResults('/discover/movie');
     return results.map(mapMovieToContentItem);
 }
 
 export async function getAllShows(): Promise<ContentItem[]> {
-    const { results } = await fetchFromTMDB('/discover/tv');
+    const results = await fetchPagedResults('/discover/tv');
     return results.map(mapTVShowToContentItem);
 }
 
