@@ -146,3 +146,20 @@ export async function searchContent(query: string): Promise<ContentItem[]> {
       return mapTVShowToContentItem(item);
     });
 }
+
+export async function getHotContent(): Promise<ContentItem[]> {
+  const [movies, shows] = await Promise.all([
+    getPopularMovies(),
+    getTrendingShows(),
+  ]);
+
+  const combined = [...movies, ...shows];
+
+  // Simple shuffle algorithm
+  for (let i = combined.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [combined[i], combined[j]] = [combined[j], combined[i]];
+  }
+
+  return combined.slice(0, 18); // Return a subset of the shuffled items
+}
