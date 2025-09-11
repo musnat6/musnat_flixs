@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Film, Home, Menu, Search, Tv, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import React from "react";
@@ -55,6 +55,9 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="left">
+            <SheetHeader>
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+            </SheetHeader>
             <Link href="/" className="mb-8 flex items-center" onClick={() => setSheetOpen(false)}>
               <span className="font-black text-lg text-primary">MUSNAT FLIXS</span>
             </Link>
