@@ -113,6 +113,12 @@ export function Header() {
                 <AlertDialogTitle>Playback Instructions</AlertDialogTitle>
                 <AlertDialogDescription asChild>
                   <div className="space-y-4 pt-2 max-h-[70vh] overflow-y-auto pr-4">
+                    <div className="space-y-2 p-4 bg-primary/10 rounded-md border border-primary/20">
+                      <p className="font-semibold text-primary">Important Note:</p>
+                      <p className="text-sm text-foreground/80">If you are redirected to another page after clicking play, please return to this page and click play again. The content should run properly.</p>
+                      <p className="font-semibold text-primary mt-2">গুরুত্বপূর্ণ নোট:</p>
+                      <p className="text-sm text-foreground/80">প্লে ক্লিক করার পর যদি আপনাকে অন্য কোনো পেজে নিয়ে যাওয়া হয়, তাহলে অনুগ্রহ করে এই পেজে ফিরে এসে আবার প্লে ক্লিক করুন। মুভি/সিরিজটি সঠিকভাবে চলবে।</p>
+                    </div>
                     <div className="space-y-1">
                       <p className="font-semibold">English:</p>
                       <p>If the movie is not found or not playing, click on the server option inside the player, select "Player 4U", and click play. The movie should run.</p>
