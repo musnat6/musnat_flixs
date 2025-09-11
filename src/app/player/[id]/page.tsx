@@ -1,25 +1,70 @@
-import { notFound } from 'next/navigation';
+
+'use client';
+
+import { notFound, useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { getContentById } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import type { ContentItem } from '@/types';
 
-type PlayerPageProps = {
-  params: {
-    id: string;
-  };
-};
+export default function PlayerPage() {
+  const params = useParams();
+  const searchParams = useSearchParams();
+  const [item, setItem] = useState<ContentItem | null>(null);
+  const [loading, setLoading] = useState(true);
 
-export default async function PlayerPage({ params }: PlayerPageProps) {
-  const item = await getContentById(params.id);
+  useEffect(() => {
+    const id = params.id as string;
+    if (id) {
+      const fetchItem = async () => {
+        setLoading(true);
+        const fetchedItem = await getContentById(id);
+        setItem(fetchedItem);
+        setLoading(false);
+      };
+      fetchItem();
+    }
+  }, [params.id]);
 
+  useEffect(() => {
+    const onFocus = () => {
+      // Smartly redirect back if focus is regained (e.g., from a pop-up)
+      if (document.activeElement instanceof HTMLIFrameElement) {
+        // do nothing if the focus is on the iframe
+      } else {
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener('focus', onFocus);
+    return () => {
+      window.removeEventListener('focus', onFocus);
+    };
+  }, []);
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+  }
+  
   if (!item || !item.imdbId) {
     notFound();
   }
 
-  const embedUrl = item.type === 'movie' 
-    ? `https://www.2embed.cc/embed/${item.imdbId}`
-    : `https://www.2embed.cc/embedtv/${item.imdbId}`;
+  let embedUrl;
+  if (item.type === 'movie') {
+    embedUrl = `https://www.2embed.cc/embed/${item.imdbId}`;
+  } else {
+    const season = searchParams.get('s');
+    const episode = searchParams.get('e');
+    if (season && episode) {
+      embedUrl = `https://www.2embed.cc/embedtv/${item.imdbId}&s=${season}&e=${episode}`;
+    } else {
+      // Default to season 1, episode 1 if not specified
+      embedUrl = `https://www.2embed.cc/embedtv/${item.imdbId}&s=1&e=1`;
+    }
+  }
 
   return (
     <div className="w-full h-screen bg-black flex flex-col">

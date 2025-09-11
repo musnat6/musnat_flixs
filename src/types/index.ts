@@ -1,3 +1,22 @@
+
+export interface Episode {
+  id: number;
+  name: string;
+  overview: string;
+  episode_number: number;
+  still_path: string | null;
+}
+
+export interface Season {
+  id: number;
+  name: string;
+  overview: string;
+  season_number: number;
+  episode_count: number;
+  poster_path: string | null;
+  episodes?: Episode[];
+}
+
 export interface ContentItem {
   id: string;
   tmdbId: number;
@@ -9,6 +28,7 @@ export interface ContentItem {
   genres: string[];
   imdbId?: string;
   type: 'movie' | 'tv';
+  seasons?: Season[];
 }
 
 export interface Movie {
@@ -41,4 +61,5 @@ export interface MovieDetails extends Movie {
 
 export interface TVShowDetails extends TVShow {
     genres: Genre[];
+    seasons: Season[];
 }

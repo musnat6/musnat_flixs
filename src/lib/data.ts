@@ -1,4 +1,4 @@
-import type { ContentItem, Movie, TVShow, MovieDetails, TVShowDetails } from '@/types';
+import type { ContentItem, Movie, TVShow, MovieDetails, TVShowDetails, Season } from '@/types';
 
 const API_KEY = process.env.TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -99,6 +99,19 @@ export async function getContentById(id: string): Promise<ContentItem | null> {
     } else {
       const show: TVShowDetails = await fetchFromTMDB(`/tv/${tmdbId}`);
       const externalIds = await fetchFromTMDB(`/tv/${tmdbId}/external_ids`);
+
+      const seasonsWithEpisodes = await Promise.all(
+        show.seasons
+        .filter(s => s.season_number > 0) // Filter out "Specials" season
+        .map(async (season: Season) => {
+          const seasonDetails = await fetchFromTMDB(`/tv/${tmdbId}/season/${season.season_number}`);
+          return {
+            ...season,
+            episodes: seasonDetails.episodes,
+          };
+        })
+      );
+
       return {
         id: `t${show.id}`,
         tmdbId: show.id,
@@ -110,6 +123,7 @@ export async function getContentById(id: string): Promise<ContentItem | null> {
         genres: show.genres.map(g => g.name),
         imdbId: externalIds.imdb_id,
         type: 'tv',
+        seasons: seasonsWithEpisodes,
       };
     }
   } catch (error) {
