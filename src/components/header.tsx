@@ -2,9 +2,19 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Film, Home, Menu, Search, Tv } from "lucide-react";
+import { Film, Home, Menu, Search, Tv, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -90,6 +100,34 @@ export function Header() {
               <Search className="h-5 w-5" />
             </Link>
           </Button>
+
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="ghost" size="icon" aria-label="Instructions">
+                <Info className="h-5 w-5" />
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Playback Instructions</AlertDialogTitle>
+                <AlertDialogDescription asChild>
+                  <div className="space-y-4 pt-2">
+                    <div className="space-y-1">
+                      <p className="font-semibold">English:</p>
+                      <p>If the movie is not found or not playing, click on the server option inside the player, select "Player 4U", and click play. The movie should run.</p>
+                    </div>
+                     <div className="space-y-1">
+                      <p className="font-semibold">বাংলা (Bengali):</p>
+                      <p>যদি মুভিটি খুঁজে না পাওয়া যায় বা দেখানো না হয়, তাহলে প্লেয়ারের ভেতরের সার্ভার অপশনে ক্লিক করুন, "Player 4U" নির্বাচন করুন এবং প্লে ক্লিক করুন। মুভিটি চলবে।</p>
+                    </div>
+                  </div>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogAction>Got it</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
       </div>
     </header>
