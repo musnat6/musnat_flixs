@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Film, Home, Menu, Search, Tv, User } from "lucide-react";
+import { Film, Home, Menu, Search, Tv } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -43,42 +42,47 @@ export function Header() {
         </div>
 
         {/* Mobile Menu */}
-        <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              aria-label="Open menu"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left">
-            <SheetHeader>
-              <SheetTitle className="sr-only">Menu</SheetTitle>
-            </SheetHeader>
-            <Link href="/" className="mb-8 flex items-center" onClick={() => setSheetOpen(false)}>
-              <span className="font-black text-lg text-primary">MUSNAT FLIXS</span>
-            </Link>
-            <nav className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setSheetOpen(false)}
-                  className={cn(
-                    "flex items-center gap-2 text-lg font-semibold",
-                    pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  <link.icon className="h-5 w-5" />
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+        <div className="flex items-center md:hidden">
+          <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SheetHeader>
+                <SheetTitle className="sr-only">Menu</SheetTitle>
+              </SheetHeader>
+              <Link href="/" className="mb-8 flex items-center" onClick={() => setSheetOpen(false)}>
+                <span className="font-black text-lg text-primary">MUSNAT FLIXS</span>
+              </Link>
+              <nav className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setSheetOpen(false)}
+                    className={cn(
+                      "flex items-center gap-2 text-lg font-semibold",
+                      pathname === link.href ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                    )}
+                  >
+                    <link.icon className="h-5 w-5" />
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
+          <Link href="/" className="ml-4 md:hidden">
+            <span className="font-black text-lg text-primary">MUSNAT FLIXS</span>
+          </Link>
+        </div>
         
         <div className="flex flex-1 items-center justify-end space-x-2">
           <Button variant="ghost" size="icon" asChild>
