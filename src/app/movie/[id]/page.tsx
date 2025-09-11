@@ -36,16 +36,6 @@ export default async function MovieDetailPage({ params }: MovieDetailPageProps) 
       <div className="container -mt-48 md:-mt-64 relative z-10 pb-16">
         <div className="max-w-4xl mx-auto">
           <div className="md:flex md:items-end md:gap-8">
-            <div className="w-48 md:w-64 flex-shrink-0 mx-auto md:mx-0">
-              <Image
-                src={item.posterPath}
-                alt={item.title}
-                width={500}
-                height={750}
-                className="rounded-lg shadow-2xl"
-                data-ai-hint="movie poster"
-              />
-            </div>
             <div className="mt-6 md:mt-0 text-center md:text-left">
               <h1 className="text-3xl md:text-5xl font-black text-balance">{item.title}</h1>
               <div className="flex items-center justify-center md:justify-start gap-4 mt-4 text-muted-foreground">
