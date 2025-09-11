@@ -86,12 +86,6 @@ export function Header() {
               <Search className="h-5 w-5" />
             </Link>
           </Button>
-          <Avatar>
-            <AvatarImage src="https://picsum.photos/seed/avatar/100/100" />
-            <AvatarFallback>
-              <User className="h-5 w-5" />
-            </AvatarFallback>
-          </Avatar>
         </div>
       </div>
     </header>
