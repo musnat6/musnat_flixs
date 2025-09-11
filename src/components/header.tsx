@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { Film, Home, Menu, Search, Tv, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -111,7 +112,7 @@ export function Header() {
               <AlertDialogHeader>
                 <AlertDialogTitle>Playback Instructions</AlertDialogTitle>
                 <AlertDialogDescription asChild>
-                  <div className="space-y-4 pt-2">
+                  <div className="space-y-4 pt-2 max-h-[70vh] overflow-y-auto pr-4">
                     <div className="space-y-1">
                       <p className="font-semibold">English:</p>
                       <p>If the movie is not found or not playing, click on the server option inside the player, select "Player 4U", and click play. The movie should run.</p>
@@ -119,6 +120,14 @@ export function Header() {
                      <div className="space-y-1">
                       <p className="font-semibold">বাংলা (Bengali):</p>
                       <p>যদি মুভিটি খুঁজে না পাওয়া যায় বা দেখানো না হয়, তাহলে প্লেয়ারের ভেতরের সার্ভার অপশনে ক্লিক করুন, "Player 4U" নির্বাচন করুন এবং প্লে ক্লিক করুন। মুভিটি চলবে।</p>
+                    </div>
+                    <div className="space-y-4">
+                        <p className="font-semibold text-center">Step 1: Click Server Option</p>
+                        <Image src="https://ucarecdn.com/7a529450-b262-41f5-a98f-506443563f93/-/preview/666x1000/" alt="Instruction 1" width={666} height={1000} className="rounded-md border" />
+                        <p className="font-semibold text-center">Step 2: Select Player 4U</p>
+                        <Image src="https://ucarecdn.com/5da034f8-312d-44d2-be15-2de4f1777215/-/preview/1000x517/" alt="Instruction 2" width={1000} height={517} className="rounded-md border" />
+                        <p className="font-semibold text-center">Step 3: Click Play</p>
+                        <Image src="https://ucarecdn.com/a2cf9a8e-a0fd-4c2d-8f87-56ee253760c2/-/preview/1000x500/" alt="Instruction 3" width={1000} height={500} className="rounded-md border" />
                     </div>
                   </div>
                 </AlertDialogDescription>
