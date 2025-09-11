@@ -123,7 +123,7 @@ export function Header() {
                     </div>
                     <div className="space-y-4">
                         <p className="font-semibold text-center">Step 1: Click Server Option</p>
-                        <Image src="https://ucarecdn.com/7a529450-b262-41f5-a98f-506443563f93/-/preview/666x1000/" alt="Instruction 1" width={666} height={1000} className="rounded-md border" />
+                        <Image src="https://ucarecdn.com/7b313963-8a6c-4be1-b23c-e75cc8fcf106/-/preview/1000x523/" alt="Instruction 1" width={1000} height={523} className="rounded-md border" />
                         <p className="font-semibold text-center">Step 2: Select Player 4U</p>
                         <Image src="https://ucarecdn.com/5da034f8-312d-44d2-be15-2de4f1777215/-/preview/1000x517/" alt="Instruction 2" width={1000} height={517} className="rounded-md border" />
                         <p className="font-semibold text-center">Step 3: Click Play</p>
